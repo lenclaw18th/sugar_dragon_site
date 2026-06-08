@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sugar Dragon | Funny Tooth Brushing Books for Toddlers | Ages 6 Months to 5 Years</title>
+  <meta name="description" content="Sugar Dragon is a funny, NHS-aligned picture book series for babies and toddlers aged 6 months to 5 years. Makes tooth brushing a game the child wins. Free brushing chart and companion app included.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --rose:        #C23060;
+      --rose-mid:    #E8708A;
+      --rose-light:  #F4C5CF;
+      --rose-dk:     #8A1A3A;
+      --cream:       #FFF8E7;
+      --cream-mid:   #F0E8D4;
+      --yellow:      #FFE87C;
+      --deep:        #3D1A2A;
+      --mid:         #5C3040;
+      --soft:        #7A4050;
+      --grn:         #2A7A4A;
+      --glass:       rgba(255,255,255,0.18);
+      --glass-edge:  rgba(255,255,255,0.42);
+    }
+
+    html, body {
+      overflow-x: hidden;
+      font-family: 'Nunito', -apple-system, 'Segoe UI', sans-serif;
+      background: var(--cream);
+      color: var(--deep);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { font-family: Georgia, serif; line-height: 1.1; letter-spacing: -0.01em; }
+    img { display: block; }
+
+    .contain { max-width: 1140px; margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 3rem); }
+    .section  { padding-block: clamp(4rem, 8vw, 7rem); }
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--cream);
+      border-bottom: 1px solid var(--rose-light);
+      box-shadow: 0 2px 12px rgba(61,26,42,0.07);
+    }
+    .nav-inner {
+      max-width: 1140px; margin-inline: auto;
+      padding-inline: clamp(1.25rem, 4vw, 3rem);
+      height: 4rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: Georgia, serif; font-size: 1.3rem; font-weight: bold;
+      color: var(--deep); text-decoration: none; letter-spacing: -0.02em; flex-shrink: 0;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 700; color: var(--mid);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--rose); }
+    .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 0.4rem;
+    }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--deep); border-radius: 2px; }
+
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none; position: absolute; top: 4rem; left: 0; right: 0;
+        background: var(--cream); border-bottom: 1px solid var(--rose-light);
+        flex-direction: column; padding: 0.5rem 0; gap: 0;
+        box-shadow: 0 8px 24px rgba(61,26,42,0.1); z-index: 49;
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-links li a { padding: 0.75rem 1.5rem; display: block; font-size: 1rem; }
+    }
+
+    /* ── BUTTONS ─────────────────────────────────────────── */
+    .btn-rose {
+      display: inline-flex; align-items: center;
+      background: linear-gradient(135deg, #B02050, #E0607A);
+      color: #fff; border: none; border-radius: 50px;
+      padding: 13px 30px; font-size: 0.92rem; font-weight: 800;
+      text-decoration: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(176,32,80,0.28);
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap; font-family: Georgia, serif;
+    }
+    .btn-rose:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(176,32,80,0.36); }
+    .btn-rose-sm { padding: 9px 22px; font-size: 0.85rem; }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center;
+      background: var(--glass); backdrop-filter: blur(14px);
+      border: 1.5px solid var(--glass-edge); border-radius: 50px;
+      padding: 12px 28px; font-size: 0.92rem; font-weight: 700;
+      color: var(--deep); text-decoration: none; cursor: pointer;
+      transition: background 0.2s, transform 0.2s; white-space: nowrap;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.34); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center;
+      background: transparent; border: 2px solid var(--rose-light); border-radius: 50px;
+      padding: 11px 26px; font-size: 0.92rem; font-weight: 700;
+      color: var(--rose); text-decoration: none; cursor: pointer;
+      transition: background 0.15s, transform 0.15s; white-space: nowrap;
+    }
+    .btn-outline:hover { background: var(--rose-light); transform: translateY(-2px); }
+
+    .btn-yellow {
+      display: inline-flex; align-items: center;
+      background: var(--yellow); color: var(--deep); border: none; border-radius: 50px;
+      padding: 13px 30px; font-size: 0.92rem; font-weight: 800;
+      text-decoration: none; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(255,232,124,0.5);
+      transition: transform 0.15s, box-shadow 0.15s; white-space: nowrap; font-family: Georgia, serif;
+    }
+    .btn-yellow:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,232,124,0.65); }
+
+    /* ── HERO ────────────────────────────────────────────── */
+    .hero {
+      position: relative; width: 100%; height: 100vh; min-height: 600px;
+      overflow: hidden;
+      background: url('../Online/SD background 4_3.jpeg') center / cover no-repeat;
+    }
+    .layer { position: absolute; inset: 0; pointer-events: none; will-change: transform; }
+
+    .cloud { position: absolute; border-radius: 50%; filter: blur(60px); animation: drift ease-in-out infinite; }
+    .cloud-a { width: 420px; height: 260px; top: 5%; left: -4%; background: radial-gradient(circle, rgba(255,255,255,0.28), rgba(255,255,255,0.0)); animation-duration: 9s; }
+    .cloud-b { width: 520px; height: 300px; top: 3%; right: -6%; background: radial-gradient(circle, rgba(255,255,255,0.22), rgba(255,245,230,0.0)); animation-duration: 11s; animation-delay: -4s; }
+    .cloud-c { width: 340px; height: 200px; bottom: 18%; left: 8%; background: radial-gradient(circle, rgba(255,255,255,0.20), rgba(255,255,255,0.0)); animation-duration: 8s; animation-delay: -2s; }
+    .cloud-d { width: 280px; height: 170px; bottom: 22%; right: 10%; background: radial-gradient(circle, rgba(255,255,255,0.18), rgba(255,255,255,0.0)); animation-duration: 10s; animation-delay: -6s; }
+    @keyframes drift { 0%, 100% { transform: translateY(0) translateX(0); } 30% { transform: translateY(-18px) translateX(10px); } 60% { transform: translateY(-28px) translateX(-6px); } }
+
+    .sparkle { position: absolute; pointer-events: none; animation: twinkle ease-in-out infinite; }
+    .sparkle::before, .sparkle::after { content: ''; position: absolute; background: rgba(255,255,255,0.9); border-radius: 2px; }
+    .sparkle::before { width: 2px; height: 16px; top: 0; left: 50%; transform: translateX(-50%); }
+    .sparkle::after  { width: 16px; height: 2px; top: 50%; left: 0; transform: translateY(-50%); }
+    @keyframes twinkle { 0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); } 50% { opacity: 1; transform: scale(1) rotate(45deg); } }
+
+    .char-glow {
+      position: absolute; top: 54%; left: 55%;
+      transform: translate(-50%, -50%);
+      width: 560px; height: 560px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,220,100,0.28) 0%, rgba(255,180,120,0.12) 45%, transparent 70%);
+      animation: glowPulse 4.5s ease-in-out infinite;
+      pointer-events: none; z-index: 2;
+    }
+    @keyframes glowPulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; } 50% { transform: translate(-50%, -50%) scale(1.12); opacity: 1; } }
+
+    .title-back {
+      position: absolute; top: 16%; left: 50%;
+      transform: translateX(-50%);
+      z-index: 4; text-align: center; width: 100%; pointer-events: none;
+    }
+    .hero-title {
+      font-family: Georgia, serif;
+      font-size: clamp(5rem, 13vw, 11rem);
+      font-weight: bold; line-height: 0.88; letter-spacing: -0.03em; color: var(--deep);
+      opacity: 0; animation: riseUp 1s ease forwards 0.5s;
+    }
+    .hero-title .grad {
+      background: linear-gradient(135deg, #B02050 0%, #E0607A 45%, #FF9060 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .dragon-wrap {
+      position: absolute; top: 27%; left: 55%;
+      transform: translateX(-50%);
+      width: min(82vw, 540px); aspect-ratio: 1 / 1;
+      z-index: 8;
+      opacity: 0; animation: riseUp 1s ease forwards 0.6s;
+      mask-image: radial-gradient(ellipse 58% 60% at 50% 52%, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 58% 60% at 50% 52%, black 30%, transparent 70%);
+    }
+    .dragon-wrap::after {
+      content: ''; position: absolute; bottom: 10%; left: 50%;
+      transform: translateX(-50%); width: 50%; height: 10%;
+      background: radial-gradient(ellipse at 50% 100%, rgba(80,40,20,0.22), transparent 70%);
+      border-radius: 50%; mix-blend-mode: multiply; pointer-events: none;
+    }
+    .dragon-video { width: 100%; height: 100%; object-fit: contain; display: block; mix-blend-mode: multiply; }
+
+    .sd-smoke { position: absolute; left: 24%; top: 26%; width: 18%; height: 30%; pointer-events: none; }
+    .sd-puff {
+      position: absolute; bottom: 0; left: 50%; width: 26px; height: 26px;
+      background: radial-gradient(circle at 50% 50%, rgba(90,90,95,0.55) 0%, rgba(90,90,95,0.32) 45%, rgba(90,90,95,0) 72%);
+      border-radius: 50%; opacity: 0; transform: translate(-50%, 0) scale(0.5);
+      animation: sd-rise 6s ease-out infinite;
+    }
+    .sd-puff--1 { animation-delay: 0s; }
+    .sd-puff--2 { animation-delay: 0.8s; width: 20px; height: 20px; }
+    .sd-puff--3 { animation-delay: 1.6s; width: 30px; height: 30px; }
+    @keyframes sd-rise {
+      0%   { opacity: 0;    transform: translate(-50%, 0)     scale(0.4); }
+      15%  { opacity: 0.85; transform: translate(-50%, -20%)  scale(0.7); }
+      55%  { opacity: 0.5;  transform: translate(-65%, -70%)  scale(1.1); }
+      100% { opacity: 0;    transform: translate(-80%, -130%) scale(1.5); }
+    }
+
+    .content-top {
+      position: absolute; top: 11%; left: 50%;
+      transform: translateX(-50%); z-index: 12; text-align: center;
+    }
+    .launch-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--glass); backdrop-filter: blur(14px);
+      border: 1px solid var(--glass-edge); border-radius: 50px;
+      padding: 8px 22px; font-size: 0.75rem; font-weight: 700;
+      color: var(--mid); letter-spacing: 0.09em; text-transform: uppercase;
+      opacity: 0; animation: riseUp 0.9s ease forwards 0.3s;
+    }
+    .pulse-dot { width: 8px; height: 8px; background: var(--rose-mid); border-radius: 50%; animation: dotPulse 2s ease-in-out infinite; flex-shrink: 0; }
+    @keyframes dotPulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.65; } }
+
+    .content-bottom {
+      position: absolute; bottom: 9%; left: 50%;
+      transform: translateX(-50%); z-index: 12; text-align: center;
+      max-width: 680px; padding: 0 32px; width: 100%;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .hero-sub {
+      font-family: Georgia, serif;
+      font-size: clamp(1rem, 2.2vw, 1.5rem);
+      color: var(--mid); font-style: italic; margin-bottom: 6px;
+      opacity: 0; animation: riseUp 1s ease forwards 0.8s;
+    }
+    .hero-sub--b {
+      margin-bottom: 14px;
+      animation-delay: 0.95s;
+    }
+    .hero-tagline {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; flex-wrap: wrap;
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--soft); letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 26px;
+      opacity: 0; animation: riseUp 1s ease forwards 1s;
+    }
+    .sep { width: 5px; height: 5px; background: var(--rose-mid); border-radius: 50%; flex-shrink: 0; }
+    .cta-row {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      opacity: 0; animation: riseUp 1s ease forwards 1.2s; flex-wrap: wrap;
+    }
+
+    .fcard {
+      position: absolute; z-index: 12;
+      background: var(--glass); backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-edge); border-radius: 18px;
+      padding: 14px 20px; min-width: 140px; opacity: 0;
+    }
+    .fcard-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--soft); margin-bottom: 3px; }
+    .fcard-value { font-size: 1rem; font-weight: 800; color: var(--deep); font-family: Georgia, serif; }
+    .fcard-sub   { font-size: 0.7rem; color: var(--soft); font-weight: 500; }
+    .fcard-tl { top: 22%; left: 4%; animation: slideRight 0.9s ease forwards 1.4s, bobA 5s ease-in-out 2.4s infinite; }
+    .fcard-tr { top: 22%; right: 4%; animation: slideLeft  0.9s ease forwards 1.6s, bobB 6s ease-in-out 2.6s infinite; }
+    .fcard-bl { bottom: 22%; left: 4%; animation: slideRight 0.9s ease forwards 1.8s, bobC 4.5s ease-in-out 2.8s infinite; }
+    .fcard-br { bottom: 22%; right: 4%; animation: slideLeft  0.9s ease forwards 2s,  bobA 5.5s ease-in-out 3s infinite; }
+    @keyframes bobA { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+    @keyframes bobB { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    @keyframes bobC { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+
+    .scroll-hint {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+      z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0; animation: riseUp 1s ease forwards 2.2s;
+    }
+    .scroll-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--soft); }
+    .scroll-bar { width: 1.5px; height: 44px; background: linear-gradient(to bottom, var(--rose-mid), transparent); transform-origin: top; animation: scrollDrop 2.2s ease-in-out 2.4s infinite; }
+    @keyframes scrollDrop { 0% { transform: scaleY(0); opacity: 1; } 50% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(0); opacity: 0; transform-origin: bottom; } }
+
+    @keyframes riseUp     { from { opacity:0; transform:translateY(28px);  } to { opacity:1; transform:translateY(0); } }
+    @keyframes slideRight { from { opacity:0; transform:translateX(-28px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes slideLeft  { from { opacity:0; transform:translateX(28px);  } to { opacity:1; transform:translateX(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .dragon-video, .cloud, .sparkle, .sd-puff, .scroll-bar { animation: none; }
+      .sd-smoke { display: none; }
+    }
+
+    /* ── SECTION TYPOGRAPHY ─────────────────────────────── */
+    .section-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose); margin-bottom: 12px; }
+    .section-title { font-family: Georgia, serif; font-size: clamp(2rem, 4.5vw, 3rem); font-weight: bold; line-height: 1.1; color: var(--deep); margin-bottom: 20px; }
+    .section-body  { font-size: 1.05rem; line-height: 1.75; color: var(--mid); }
+    .divider { height: 1px; background: linear-gradient(to right, transparent, var(--rose-light), transparent); max-width: 1140px; margin: 0 auto; }
+
+    /* ── 2. VILLAIN ─────────────────────────────────────── */
+    .villain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 7rem); align-items: center; }
+    @media (max-width: 640px) { .villain-grid { grid-template-columns: 1fr; } }
+    .villain-scene { border-radius: 2rem; overflow: hidden; box-shadow: 0 24px 64px rgba(194,48,96,0.14); aspect-ratio: 1; }
+    .villain-scene img { width: 100%; height: 100%; object-fit: cover; }
+    .villain-text .section-title { margin-bottom: 1.25rem; }
+    .villain-text p { color: var(--mid); font-size: 1.05rem; line-height: 1.75; max-width: 46ch; margin-bottom: 1rem; }
+    .villain-text strong { color: var(--rose); }
+
+    /* ── 3. BOOKS ───────────────────────────────────────── */
+    .books-wrap { background: var(--cream-mid); border-radius: 2.5rem; padding: clamp(2.5rem, 6vw, 4rem); }
+    .books-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+    .books-layout { display: grid; grid-template-columns: 1.8fr 1fr; gap: 1.5rem; }
+    @media (max-width: 640px) { .books-layout { grid-template-columns: 1fr; } }
+    .book-featured { background: white; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 8px 32px rgba(61,26,42,0.08); display: flex; flex-direction: column; }
+    .book-featured-photo { overflow: hidden; }
+    .book-featured-photo img { width: 100%; height: auto; display: block; }
+    .book-featured-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
+    .book-launch-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grn); margin-bottom: 0.5rem; }
+    .book-featured-body h3 { font-family: Georgia, serif; font-size: 1.3rem; color: var(--deep); margin-bottom: 0.5rem; }
+    .book-featured-body p { font-size: 0.9rem; line-height: 1.65; color: var(--mid); margin-bottom: 1.25rem; flex: 1; }
+    .book-stack { display: flex; flex-direction: column; height: 100%; gap: 0.75rem; }
+    .book-teaser { flex: 1; background: white; border-radius: 1.5rem; padding: 1.25rem 1.5rem; box-shadow: 0 4px 16px rgba(61,26,42,0.06); display: flex; align-items: center; gap: 1.25rem; }
+    .book-teaser-icon { width: 52px; height: 52px; border-radius: 1rem; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+    .book-teaser-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.25rem; }
+    .book-teaser-text h3 { font-family: Georgia, serif; font-size: 1rem; color: var(--deep); margin-bottom: 0.2rem; }
+    .book-teaser-text p  { font-size: 0.85rem; color: var(--soft); margin: 0; line-height: 1.5; }
+    .book-notify { flex: 1; background: #FFF0F3; border-radius: 1.5rem; padding: 1.25rem 1.5rem; border: 1px solid var(--rose-light); display: flex; flex-direction: column; justify-content: center; }
+    .book-notify p { font-size: 0.875rem; color: var(--mid); margin-bottom: 0.75rem; }
+
+    /* ── BOOK FAN SPREAD (removed) ──────────────────────── */
+    .bss-outer { display: none; }
+    .bss-pin {
+      position: sticky; top: 0; height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 2rem 1rem;
+    }
+    .bsc { position: relative; width: 100%; height: 320px; margin-top: 1.5rem; }
+    .bsc-card {
+      position: absolute; left: 50%; top: 0;
+      width: 210px; height: 296px; border-radius: 1.25rem;
+      box-shadow: 0 10px 40px rgba(61,26,42,0.16);
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 1.25rem 1rem; overflow: hidden; will-change: transform; gap: 0.25rem;
+    }
+    .bsc-card--2     { background: #D9E4F5; }
+    .bsc-card--3     { background: #D0EDD8; }
+    .bsc-card--main  { z-index: 3; padding: 0; }
+    .bsc-card--main img { width: 100%; height: 100%; object-fit: cover; border-radius: 1.25rem; }
+    .bsc-card--4     { background: #FDE8C4; }
+    .bsc-card--teaser{ background: var(--cream-mid); }
+    .bsc-num   { font-family: Georgia, serif; font-size: 0.7rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); background: rgba(255,255,255,0.65); padding: 0.15rem 0.6rem; border-radius: 100px; }
+    .bsc-title { font-family: Georgia, serif; font-size: 1rem; font-weight: bold; color: var(--deep); text-align: center; line-height: 1.25; }
+    .bsc-emoji { font-size: 3rem; display: block; margin-bottom: 0.25rem; }
+    @media (max-width: 640px) {
+      .bsc-card { width: 148px; height: 208px; }
+      .bss-outer { min-height: 160vh; }
+      .bsc { height: 240px; }
+      .bsc-emoji { font-size: 2rem; }
+    }
+
+    /* ── 4. HOW IT WORKS ────────────────────────────────── */
+    .how-section { background: #FFF4E8; }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+    @media (max-width: 900px) { .how-grid { grid-template-columns: 1fr; } }
+    .how-card { border-radius: 24px; min-height: 320px; cursor: pointer; user-select: none; perspective: 1200px; -webkit-perspective: 1200px; }
+    .how-card-inner { position: relative; width: 100%; min-height: 320px; transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; -webkit-transform-style: preserve-3d; }
+    .how-card.flipped .how-card-inner { transform: rotateY(180deg); }
+    .how-card-front, .how-card-back { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 24px; padding: 36px 28px; display: flex; flex-direction: column; }
+    .how-card-front { background: #fff; box-shadow: 0 4px 24px rgba(194,48,96,0.07); border: 1px solid var(--rose-light); transition: box-shadow 0.25s; }
+    .how-card:hover:not(.flipped) .how-card-front { box-shadow: 0 10px 40px rgba(194,48,96,0.16); }
+    .how-card-back { transform: rotateY(180deg); background: var(--deep); border: 1px solid var(--mid); }
+    .how-icon { font-size: 2.4rem; margin-bottom: 16px; }
+    .how-title { font-family: Georgia, serif; font-size: 1.2rem; font-weight: bold; color: var(--deep); margin-bottom: 10px; }
+    .how-text  { font-size: 0.9rem; line-height: 1.7; color: var(--mid); }
+    .how-flip-hint { margin-top: auto; padding-top: 16px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose-mid); }
+    .how-back-source { font-size: 0.63rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.13em; color: var(--rose-mid); margin-bottom: 14px; }
+    .how-back-title  { font-family: Georgia, serif; font-size: 1.15rem; font-weight: bold; color: #fff; margin-bottom: 14px; line-height: 1.25; }
+    .how-back-text   { font-size: 0.87rem; line-height: 1.75; color: rgba(255,255,255,0.74); flex: 1; }
+    .how-flip-hint--back { color: rgba(255,255,255,0.38); font-size: 0.68rem; }
+
+    /* ── 5. PHOTO PROOF ─────────────────────────────────── */
+    .photo-proof { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 580px; }
+    @media (max-width: 768px) { .photo-proof { grid-template-columns: 1fr; } }
+    .photo-proof-img { overflow: hidden; }
+    .photo-proof-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .photo-proof-text { padding: clamp(3rem, 7vw, 6rem); display: flex; flex-direction: column; justify-content: center; background: white; }
+    .photo-proof-text h2 { font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--deep); margin-bottom: 1.25rem; }
+    .photo-proof-text p  { color: var(--mid); font-size: 1.05rem; line-height: 1.75; max-width: 40ch; margin-bottom: 1rem; }
+    .photo-proof-text strong { color: var(--deep); }
+    .proof-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+    /* ── 6. APP ──────────────────────────────────────────── */
+    .app-section { background: var(--deep); }
+    .app-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+    @media (max-width: 640px) { .app-grid { grid-template-columns: 1fr; } }
+    .app-section h2 { font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: white; margin-bottom: 1.25rem; }
+    .app-section .section-tag { color: var(--yellow); }
+    .checklist { list-style: none; margin-bottom: 2rem; }
+    .checklist li { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.9rem; font-size: 1rem; color: rgba(255,255,255,0.72); }
+    .checklist li::before { content: ""; display: block; width: 20px; height: 20px; border-radius: 50%; background: var(--grn); flex-shrink: 0; margin-top: 2px; }
+    .app-lifestyle { border-radius: 2rem; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.35); }
+    .app-lifestyle img { width: 100%; display: block; transform: scale(1.08); transform-origin: center center; }
+    .app-pilot { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-top: 0.75rem; }
+
+    /* ── 7. STORY PAYOFF ────────────────────────────────── */
+    .story-section { background: var(--cream-mid); }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 7rem); align-items: center; }
+    @media (max-width: 640px) { .story-grid { grid-template-columns: 1fr; } }
+    .story-img { border-radius: 2rem; overflow: hidden; box-shadow: 0 24px 64px rgba(61,26,42,0.1); }
+    .story-img img { width: 100%; }
+    .story-text h2 { font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--deep); margin-bottom: 1.25rem; }
+    .story-text p  { color: var(--mid); font-size: 1.05rem; line-height: 1.75; max-width: 44ch; margin-bottom: 1rem; }
+    .story-text strong { color: var(--deep); }
+
+    /* ── 8. TRUST STRIP ─────────────────────────────────── */
+    .trust-section { background: var(--deep); }
+    .trust-strip {
+      display: grid; grid-template-columns: 1fr 1.6fr; gap: clamp(1.5rem, 5vw, 4rem);
+      align-items: center;
+      background: rgba(255,255,255,0.05); border-radius: 2rem;
+      padding: clamp(2rem, 5vw, 3.5rem);
+    }
+    @media (max-width: 640px) { .trust-strip { grid-template-columns: 1fr; } }
+    .trust-stat { text-align: center; }
+    .trust-stat-num { font-family: Georgia, serif; font-size: clamp(3.5rem, 9vw, 5.5rem); font-weight: bold; color: var(--yellow); line-height: 1; margin-bottom: 0.5rem; }
+    .trust-stat-sub { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.55; }
+    .trust-creds { list-style: none; }
+    .trust-creds li { display: flex; align-items: flex-start; gap: 0.75rem; padding-bottom: 0.9rem; margin-bottom: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.6; }
+    .trust-creds li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .trust-creds li::before { content: "✓"; font-weight: 700; color: var(--yellow); flex-shrink: 0; font-size: 1.05rem; }
+    .trust-creds strong { color: white; }
+
+    /* ── 9. EMAIL CAPTURE ───────────────────────────────── */
+    .cta-wrap {
+      background: linear-gradient(135deg, #B02050 0%, #E0607A 52%, #FF9060 100%);
+      border-radius: 2.5rem;
+      padding: clamp(3rem, 7vw, 5rem) clamp(2rem, 6vw, 4rem);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+    }
+    @media (max-width: 640px) { .cta-wrap { grid-template-columns: 1fr; } }
+    .cta-wrap .section-tag { color: rgba(255,255,255,0.65); }
+    .cta-wrap h2 { font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: white; margin-bottom: 1rem; }
+    .cta-wrap p  { color: rgba(255,255,255,0.8); line-height: 1.65; font-size: 1.05rem; }
+    .download-previews { display: flex; gap: 1.25rem; margin-top: 2rem; }
+    .download-preview  { width: 110px; flex-shrink: 0; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .download-preview:first-child { transform: rotate(-2.5deg); }
+    .download-preview:last-child  { transform: rotate(1.5deg); margin-top: 0.75rem; }
+    .download-preview img { width: 100%; }
+    .email-card { background: white; border-radius: 1.5rem; padding: 2rem; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .email-card p  { font-weight: 700; margin-bottom: 1rem; color: var(--deep); font-size: 1rem; }
+    .email-card input {
+      width: 100%; border: 2px solid var(--rose-light); border-radius: 50px;
+      padding: 0.75rem 1.25rem; font-family: 'Nunito', sans-serif; font-size: 1rem;
+      margin-bottom: 0.75rem; color: var(--deep); outline: none; background: white;
+      transition: border-color 0.15s;
+    }
+    .email-card input:focus { border-color: var(--rose); }
+    .email-card button {
+      width: 100%;
+      background: linear-gradient(135deg, #B02050, #E0607A); color: white;
+      font-family: Georgia, serif; font-size: 1.05rem; font-weight: bold;
+      border: none; border-radius: 50px; padding: 0.85rem; cursor: pointer;
+      transition: opacity 0.15s, transform 0.15s;
+      box-shadow: 0 4px 16px rgba(176,32,80,0.25);
+    }
+    .email-card button:hover { opacity: 0.9; transform: translateY(-1px); }
+    .fine-print { font-size: 0.78rem; color: var(--soft); text-align: center; margin-top: 0.6rem; }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    .site-footer { background: var(--deep); padding: clamp(3rem, 6vw, 5rem) 0 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 420px)  { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand { font-family: Georgia, serif; font-size: 1.4rem; color: white; font-weight: bold; margin-bottom: 0.75rem; }
+    .footer-tagline { font-size: 0.9rem; color: rgba(255,255,255,0.42); line-height: 1.65; max-width: 220px; }
+    .footer-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.35); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.6rem; }
+    .footer-col a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.88rem; transition: color 0.15s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;
+      font-size: 0.75rem; color: rgba(255,255,255,0.3);
+    }
+
+    /* ── HERO FACTS (static pill grid, small screens only) ─ */
+    .hero-facts { display: none; }
+    .hero-fact { display: flex; flex-direction: column; gap: 2px; }
+
+    @media (max-width: 860px) {
+      .fcard { display: none; }
+      .hero-facts {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+        width: 100%; max-width: 420px; margin: 18px auto 0;
+      }
+      .hero-fact {
+        background: var(--glass); backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-edge); border-radius: 14px;
+        padding: 10px 14px; text-align: left;
+        display: flex; flex-direction: column; gap: 2px;
+      }
+      .content-top { position: static; margin-top: 84px; transform: none; }
+      .title-back  { position: static; margin-top: 12px; }
+    }
+
+    /* ── HERO RESPONSIVE ────────────────────────────────── */
+    @media (max-width: 768px) {
+      .fcard-tl, .fcard-tr { top: 10%; }
+      .fcard-bl, .fcard-br { bottom: 10%; }
+      .fcard { min-width: 110px; padding: 10px 14px; }
+      .dragon-wrap { width: min(90vw, 360px); top: 22%; }
+      .content-bottom { bottom: 6%; }
+      .title-back { left: 0; right: 0; width: 100%; transform: none; text-align: center; padding-inline: 16px; }
+      .hero-title { font-size: clamp(2.4rem, 12vw, 4rem); line-height: 0.98; letter-spacing: -0.02em; max-width: 100%; overflow-wrap: break-word; }
+      .hero-title .grad, .hero-title .word { display: block; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .fcard { min-width: 96px; padding: 8px 12px; }
+      .fcard-value { font-size: 0.9rem; }
+    }
+    @media (max-width: 420px) {
+      .hero-title { font-size: clamp(2.1rem, 13vw, 3.2rem); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── STICKY NAV ─────────────────────────────────────────── -->
+<header class="site-nav">
+  <nav class="nav-inner">
+    <a href="/" class="nav-logo">Sugar Dragon</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/books">Books</a></li>
+      <li><a href="/app">App</a></li>
+      <li><a href="/dentists">For Dentists</a></li>
+      <li><a href="for-schools.html">For Schools</a></li>
+      <li><a href="/free-stuff">Free Resources</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-hamburger" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <!-- Switch label to "Buy on Amazon" on 1 June 2026 -->
+      <a href="https://www.amazon.co.uk" target="_blank" rel="noopener" class="btn-rose btn-rose-sm">
+        Pre-order on Amazon
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- ── 1. CINEMATIC HERO ───────────────────────────────────── -->
+<section class="hero" id="hero">
+
+  <div class="layer" id="layerClouds">
+    <div class="cloud cloud-a"></div>
+    <div class="cloud cloud-b"></div>
+    <div class="cloud cloud-c"></div>
+    <div class="cloud cloud-d"></div>
+  </div>
+
+  <div class="layer" id="layerSparkles"></div>
+  <div class="char-glow"></div>
+
+  <!-- Title behind dragon -->
+  <div class="title-back" id="titleBack">
+    <h1 class="hero-title"><span class="grad word">Sugar</span><span class="word">Dragon</span></h1>
+  </div>
+
+  <!-- Dragon video floats on top -->
+  <div class="dragon-wrap" id="dragonWrap">
+    <video class="dragon-video" autoplay loop muted playsinline preload="auto"
+           aria-label="The Sugar Dragon, a mischievous cartoon dragon, breathing gently">
+      <source src="../ad video/shorts/Opus 4.7 output/files/sugar_dragon_loop.mp4" type="video/mp4">
+    </video>
+    <div class="sd-smoke" aria-hidden="true">
+      <span class="sd-puff sd-puff--1"></span>
+      <span class="sd-puff sd-puff--2"></span>
+      <span class="sd-puff sd-puff--3"></span>
+    </div>
+  </div>
+
+  <!-- Launch badge -->
+  <div class="content-top" id="contentTop">
+    <div class="launch-badge">
+      <div class="pulse-dot"></div>
+      Book 1 arriving 1 June 2026
+    </div>
+  </div>
+
+  <!-- Subtitle, tagline, CTAs -->
+  <div class="content-bottom" id="contentBottom">
+    <p class="hero-sub">He steals rotten teeth.</p>
+    <p class="hero-sub hero-sub--b">Brush twice a day and he loses his wings.</p>
+    <p class="hero-tagline">
+      <span>Less sugar</span>
+      <span class="sep"></span>
+      <span>Less fillings</span>
+      <span class="sep"></span>
+      <span>Healthy smiles</span>
+    </p>
+    <div class="cta-row">
+      <!-- Switch to "Buy on Amazon" on 1 June 2026 -->
+      <a href="https://www.amazon.co.uk" target="_blank" rel="noopener" class="btn-rose">Pre-order on Amazon &nbsp;&#x2192;</a>
+      <a href="#chart" class="btn-ghost">Download the free chart</a>
+    </div>
+    <div class="hero-facts" aria-hidden="false">
+      <div class="hero-fact"><span class="fcard-label">Age group</span><span class="fcard-value">18m to 5 yrs</span></div>
+      <div class="hero-fact"><span class="fcard-label">Evidence base</span><span class="fcard-value">NHS aligned</span></div>
+      <div class="hero-fact"><span class="fcard-label">Launch date</span><span class="fcard-value">1 June 2026</span></div>
+      <div class="hero-fact"><span class="fcard-label">Pilot partner</span><span class="fcard-value">Abbas Dental</span></div>
+    </div>
+  </div>
+
+  <!-- Floating credibility cards -->
+  <div class="fcard fcard-tl">
+    <div class="fcard-label">Age group</div>
+    <div class="fcard-value">18m to 5 yrs</div>
+  </div>
+  <div class="fcard fcard-tr">
+    <div class="fcard-label">Evidence base</div>
+    <div class="fcard-value">NHS aligned</div>
+    <div class="fcard-sub">Delivering Better Oral Health</div>
+  </div>
+  <div class="fcard fcard-bl">
+    <div class="fcard-label">Launch date</div>
+    <div class="fcard-value">1 June 2026</div>
+  </div>
+  <div class="fcard fcard-br">
+    <div class="fcard-label">Pilot partner</div>
+    <div class="fcard-value">Abbas Dental</div>
+    <div class="fcard-sub">Tottenham N17</div>
+  </div>
+
+  <div class="scroll-hint">
+    <span class="scroll-label">Scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+
+</section>
+
+<!-- ── 2. MEET THE VILLAIN ────────────────────────────────── -->
+<section class="section">
+  <div class="contain">
+    <div class="villain-grid">
+      <div class="villain-scene">
+        <img
+          src="../BOOK1/image%203.jpg"
+          alt="The Sugar Dragon recoiling in horror at a tube of minty toothpaste"
+        />
+      </div>
+      <div class="villain-text">
+        <p class="section-tag">Meet the villain</p>
+        <h2 class="section-title">Small. Red. Absolutely obsessed with rotten teeth.</h2>
+        <p>He has a bright yellow chest, tatty grey wings, and yellow teeth he is very self-conscious about. He is obsessed with sugary food, fizzy drinks, and, most of all, rotten teeth. He hollows them out and flies home inside them.</p>
+        <p>There is one thing that terrifies him: <strong>minty toothpaste.</strong></p>
+        <p>And when a child brushes their teeth twice a day for the full two minutes? His wings fall off. He has to walk home. <strong>He hates walking.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── 3. BOOKS ───────────────────────────────────────────── -->
+<section class="section">
+  <div class="contain">
+    <div class="books-wrap">
+      <div class="books-header">
+        <div>
+          <p class="section-tag">The series</p>
+          <h2 class="section-title" style="max-width:30ch;margin-bottom:0;">A series your toddler will want to finish</h2>
+        </div>
+        <a href="/books" class="btn-rose btn-rose-sm">See all books</a>
+      </div>
+      <div class="books-layout">
+        <div class="book-featured">
+          <div class="book-featured-photo">
+            <img
+              src="../BOOK1/SD (8.5 x 8.5 in) BOOK COVER.png"
+              alt="Sugar Dragon Goes to the Dentist, Book 1 cover"
+            />
+          </div>
+          <div class="book-featured-body">
+            <p class="book-launch-tag">Launches 1 June 2026</p>
+            <h3>Sugar Dragon Goes to the Dentist</h3>
+            <p>Little Maya discovers a wobbly tooth and the Sugar Dragon is on his way. A trip to a friendly dentist and two whole minutes of brushing change everything. Funny, warm, rhyming, and satisfying to read at bedtime.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <p style="font-family:Georgia,serif;font-size:1.3rem;font-weight:bold;color:var(--deep);">£8.99</p>
+              <!-- Switch to "Buy on Amazon" on 1 June 2026 -->
+              <a href="https://www.amazon.co.uk" target="_blank" rel="noopener" class="btn-rose btn-rose-sm">Pre-order on Amazon</a>
+            </div>
+          </div>
+        </div>
+        <div class="book-stack">
+          <div class="book-teaser">
+            <div class="book-teaser-icon" style="background:#D9E4F5;">🌙</div>
+            <div class="book-teaser-text">
+              <p class="book-teaser-label" style="color:#3060A0;">Coming 2026</p>
+              <h3>Sugar Dragon Goes to Bed</h3>
+              <p>Bedtime is the Dragon's favourite time. The lights go off. The toothbrush goes quiet.</p>
+            </div>
+          </div>
+          <div class="book-teaser">
+            <div class="book-teaser-icon" style="background:#D0EDD8;">🏫</div>
+            <div class="book-teaser-text">
+              <p class="book-teaser-label" style="color:var(--grn);">Coming 2026</p>
+              <h3>Sugar Dragon Goes to School</h3>
+              <p>Maya's first day in reception. The Dragon has plans for her packed lunch!</p>
+            </div>
+          </div>
+          <div class="book-teaser">
+            <div class="book-teaser-icon" style="background:#FDE8C4;">🎉</div>
+            <div class="book-teaser-text">
+              <p class="book-teaser-label" style="color:#A05010;">Coming 2026</p>
+              <h3>Sugar Dragon Goes to a Party</h3>
+              <p>Party bags, birthday cake, and the Dragon has been eyeing the sugar bowl all week.</p>
+            </div>
+          </div>
+          <div class="book-notify">
+            <p>15 books planned. One villain. Zero fillings.</p>
+            <a href="#chart" class="btn-rose btn-rose-sm">Get notified for Book 2</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 4. HOW IT WORKS ────────────────────────────────────── -->
+<section class="section how-section">
+  <div class="contain">
+    <p class="section-tag">How it works</p>
+    <h2 class="section-title">Three steps to defeating the Sugar Dragon.</h2>
+    <div class="how-grid">
+
+      <div class="how-card" role="button" tabindex="0" aria-label="Read together. Tap to reveal the NHS evidence.">
+        <div class="how-card-inner">
+          <div class="how-card-front">
+            <div class="how-icon">📖</div>
+            <div class="how-title">Read together</div>
+            <p class="how-text">Sugar Dragon turns the bedtime brushing routine into a story. Your child becomes the hero who defeats the villain every single night.</p>
+            <div class="how-flip-hint">&#x21BB; Tap to see the evidence</div>
+          </div>
+          <div class="how-card-back">
+            <div class="how-back-source">NHS Delivering Better Oral Health (2021)</div>
+            <div class="how-back-title">Why stories build habits</div>
+            <p class="how-back-text">The NHS recommends supervised brushing from the first tooth until at least age 7. Consistent routine engagement is the strongest predictor of long-term oral health in young children. Stories make it something children look forward to.</p>
+            <div class="how-flip-hint how-flip-hint--back">&#x2190; Tap to go back</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="how-card" role="button" tabindex="0" aria-label="Brush to win. Tap to reveal the NHS evidence.">
+        <div class="how-card-inner">
+          <div class="how-card-front">
+            <div class="how-icon">🪥</div>
+            <div class="how-title">Brush to win</div>
+            <p class="how-text">Fluoride toothpaste is the weapon. Two minutes, twice a day. The book ties the habit directly to defeating Sugar Dragon.</p>
+            <div class="how-flip-hint">&#x21BB; Tap to see the evidence</div>
+          </div>
+          <div class="how-card-back">
+            <div class="how-back-source">NHS DBOH (2021) &middot; OHID (2022)</div>
+            <div class="how-back-title">The fluoride evidence</div>
+            <p class="how-back-text">Children aged 3 and over should brush twice daily with a pea-sized amount of 1,350 to 1,500 ppm fluoride toothpaste, supervised until at least age 7. Nearly 1 in 4 five-year-olds in England has visible tooth decay. This is largely preventable through consistent use of fluoride toothpaste from infancy.</p>
+            <div class="how-flip-hint how-flip-hint--back">&#x2190; Tap to go back</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="how-card" role="button" tabindex="0" aria-label="Track the streak. Tap to reveal the evidence.">
+        <div class="how-card-inner">
+          <div class="how-card-front">
+            <div class="how-icon">⭐</div>
+            <div class="how-title">Track the streak</div>
+            <p class="how-text">The free brushing wallchart lets children mark each victory. Visual reward systems work. The evidence says so.</p>
+            <div class="how-flip-hint">&#x21BB; Tap to see the evidence</div>
+          </div>
+          <div class="how-card-back">
+            <div class="how-back-source">Frontiers in Oral Health (2023) &middot; JMIR mHealth (2021)</div>
+            <div class="how-back-title">Visual rewards and compliance</div>
+            <p class="how-back-text">Visual reward tools and gamified brushing apps significantly improve adherence in children under 6. Peer-reviewed mHealth reviews identify immediate visual feedback as the most effective non-clinical lever for building pre-school brushing habits.</p>
+            <div class="how-flip-hint how-flip-hint--back">&#x2190; Tap to go back</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 5. PHOTO PROOF ─────────────────────────────────────── -->
+<div class="photo-proof">
+  <div class="photo-proof-img">
+    <img
+      src="../Online/PARENT_CHILD_REAL%20READING%20BOOK%201.jpeg"
+      alt="A mother and her young daughter on a sofa, laughing together as they read Sugar Dragon Goes to the Dentist"
+    />
+  </div>
+  <div class="photo-proof-text">
+    <p class="section-tag">This is bedtime now</p>
+    <h2>The brushing battle. Won.</h2>
+    <p>Parents across the UK are putting Sugar Dragon on the bathroom windowsill and watching the arguments stop.</p>
+    <p>The Dragon is the villain your child gets to defeat. Twice a day. For two whole minutes.</p>
+    <p>It is not a chore. It is a game. <strong>And your child wins it.</strong></p>
+    <div class="proof-ctas">
+      <a href="https://www.amazon.co.uk" target="_blank" rel="noopener" class="btn-rose">Pre-order Book 1</a>
+      <a href="#chart" class="btn-outline">Free brushing chart</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── 6. FREE COMPANION APP ──────────────────────────────── -->
+<section class="section app-section">
+  <div class="contain">
+    <div class="app-grid">
+      <div>
+        <p class="section-tag">Free companion app</p>
+        <h2>Two minutes. One dragon. Zero arguments.</h2>
+        <p style="color:rgba(255,255,255,0.7);font-size:1.05rem;line-height:1.75;margin-bottom:2rem;max-width:42ch;">The Sugar Dragon app is a free twice-daily brushing timer for iOS and Android. Watch the Dragon shrink in real time. At two minutes, the wings fall off. A tooth sticker lands on the streak calendar.</p>
+        <ul class="checklist">
+          <li>No ads. Ever.</li>
+          <li>No data collected from your child.</li>
+          <li>No dark patterns or streak-loss anxiety.</li>
+          <li>Free forever for the core brushing loop.</li>
+        </ul>
+        <a href="#chart" class="btn-yellow">Join the app waitlist</a>
+        <p class="app-pilot">Launching Q4 2026. In pilot at Abbas Dental Practice, Tottenham.</p>
+      </div>
+      <div>
+        <div class="app-lifestyle">
+          <img
+            src="../Online/website%202.png"
+            alt="A father and daughter at the kitchen counter, smiling as they watch the Sugar Dragon app on a phone"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 7. WINGLESS DRAGON PAYOFF ──────────────────────────── -->
+<section class="section story-section">
+  <div class="contain">
+    <div class="story-grid">
+      <div class="story-img">
+        <img
+          src="../Marketing/assets/character/dragon-wingless.jpeg"
+          alt="The Sugar Dragon walking away with his wings falling off while the Tooth Fairy watches from a bedroom window"
+        />
+      </div>
+      <div class="story-text">
+        <p class="section-tag">The promise</p>
+        <h2>His wings fall off. Every time.</h2>
+        <p>When your child brushes for the full two minutes, twice a day, the Sugar Dragon has to walk home. His wings detach mid-stride.</p>
+        <p>He absolutely hates walking.</p>
+        <p><strong>This is the promise at the heart of every Sugar Dragon book.</strong> A villain your child can defeat, on their own, with a toothbrush. Every single morning and night.</p>
+        <div style="margin-top:2rem;">
+          <a href="https://www.amazon.co.uk" target="_blank" rel="noopener" class="btn-rose">Pre-order Book 1 on Amazon</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 8. TRUST STRIP ─────────────────────────────────────── -->
+<section class="section trust-section">
+  <div class="contain">
+    <p class="section-tag" style="color:rgba(255,255,255,0.45);text-align:center;margin-bottom:2rem;">Trusted by dental professionals</p>
+    <div class="trust-strip">
+      <div class="trust-stat">
+        <p class="trust-stat-num">23.7%</p>
+        <p class="trust-stat-sub">
+          of five-year-olds in England<br>have tooth decay<br>
+          <em style="color:rgba(255,255,255,0.28);font-size:0.8rem;">OHID, 2022</em>
+        </p>
+      </div>
+      <ul class="trust-creds">
+        <li>All brushing guidance follows <strong>NHS Delivering Better Oral Health (2021)</strong>, covering fluoride amounts, twice-daily routine, and spit-don't-rinse.</li>
+        <li>Clinically reviewed by <strong>Mr S Ditta</strong>, registered UK dental hygienist, before every public release.</li>
+        <li>Pilot partner: <strong>Abbas Dental Practice, Tottenham N17</strong>, starting 1 June 2026.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews placeholder: verified parent quotes to be inserted here once received. Do NOT publish placeholder text. -->
+
+<!-- ── 9. EMAIL CAPTURE ────────────────────────────────────── -->
+<section id="chart" class="section">
+  <div class="contain">
+    <div class="cta-wrap">
+      <div>
+        <p class="section-tag">Free downloads</p>
+        <h2>Stick it on the bathroom wall.</h2>
+        <p>Download the free Sugar Dragon brushing chart. Your child puts a sticker in a square every time they brush. Fill in 14 days and the Dragon on the chart loses both wings.</p>
+        <p style="margin-top:0.75rem;">Plus a personalised Tooth Fairy certificate for every child who completes the chart.</p>
+        <div class="download-previews">
+          <div class="download-preview">
+            <img src="../Marketing/assets/print/healthy%20teeth%20chart.png" alt="Sugar Dragon's Healthy Teeth Chart, a two-week sticker chart for the bathroom wall" />
+          </div>
+          <div class="download-preview">
+            <img src="../Marketing/assets/print/girl%20tooth%20fairy%201.png" alt="Tooth Fairy Certificate, personalised for your child" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <!-- TODO: Replace with ConvertKit or Beehiiv embed before launch -->
+        <div class="email-card">
+          <p>Get the free brushing chart and Tooth Fairy certificate</p>
+          <input type="email" placeholder="Your email address" autocomplete="email" />
+          <button type="button">Send me the free chart</button>
+          <p class="fine-print">No spam. Unsubscribe any time. UK GDPR compliant.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 10. FOOTER ──────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="contain">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">Sugar Dragon</p>
+        <p class="footer-tagline">Less sugar. Less fillings. Healthy smiles. A children's book series for the brushing battle.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Books</div>
+        <ul>
+          <li><a href="/books">All books</a></li>
+          <li><a href="https://www.amazon.co.uk" target="_blank" rel="noopener">Buy on Amazon</a></li>
+          <li><a href="#chart">Free brushing chart</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Professionals</div>
+        <ul>
+          <li><a href="/dentists">For dental practices</a></li>
+          <li><a href="for-schools.html">For nurseries</a></li>
+          <li><a href="/app">The app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <ul>
+          <li><a href="https://instagram.com/sugardragonbooks" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://tiktok.com/@sugardragonbooks" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="mailto:lajoseph3@googlemail.com">Email Len</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 Sugar Dragon Books. All rights reserved.</span>
+      <span>Illustrations lovingly created using AI tools. Clinical content reviewed by Mr S Ditta, registered dental hygienist.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  /* Sparkle particles */
+  const sparkleLayer = document.getElementById('layerSparkles');
+  for (let i = 0; i < 24; i++) {
+    const s = document.createElement('div');
+    s.classList.add('sparkle');
+    s.style.cssText = `
+      left: ${Math.random() * 100}%;
+      top:  ${Math.random() * 72}%;
+      width: 2px; height: 2px;
+      animation-duration:  ${(Math.random() * 2 + 1.5).toFixed(2)}s;
+      animation-delay:     ${(Math.random() * 5).toFixed(2)}s;
+      transform: scale(${(Math.random() * 0.5 + 0.5).toFixed(2)});
+      opacity: 0;
+    `;
+    sparkleLayer.appendChild(s);
+  }
+
+  /* Mouse parallax on hero */
+  const hero          = document.getElementById('hero');
+  const clouds        = document.getElementById('layerClouds');
+  const titleBack     = document.getElementById('titleBack');
+  const dragonWrap    = document.getElementById('dragonWrap');
+  const contentBottom = document.getElementById('contentBottom');
+  const sparkles      = document.getElementById('layerSparkles');
+  let raf = null, tx = 0, ty = 0;
+
+  hero.addEventListener('mousemove', (e) => {
+    const { width, height, left, top } = hero.getBoundingClientRect();
+    tx = (e.clientX - left - width  / 2) / width;
+    ty = (e.clientY - top  - height / 2) / height;
+    if (!raf) raf = requestAnimationFrame(applyParallax);
+  });
+
+  function applyParallax() {
+    clouds.style.transform        = `translate(${tx * 24}px, ${ty * 18}px)`;
+    sparkles.style.transform      = `translate(${tx * 10}px, ${ty * 8}px)`;
+    titleBack.style.transform     = `translate(calc(-50% + ${tx * -5}px), ${ty * -5}px)`;
+    dragonWrap.style.transform    = `translate(calc(-50% + ${tx * -9}px), ${ty * -8}px)`;
+    contentBottom.style.transform = `translate(calc(-50% + ${tx * -3}px), ${ty * -2}px)`;
+    raf = null;
+  }
+
+  hero.addEventListener('mouseleave', () => {
+    [clouds, titleBack, dragonWrap, contentBottom, sparkles].forEach(el => el.style.transition = 'transform 1.2s ease');
+    clouds.style.transform        = '';
+    titleBack.style.transform     = '';
+    dragonWrap.style.transform    = '';
+    contentBottom.style.transform = '';
+    sparkles.style.transform      = '';
+    setTimeout(() => {
+      [clouds, titleBack, dragonWrap, contentBottom, sparkles].forEach(el => el.style.transition = '');
+    }, 1200);
+  });
+
+  /* Hero scroll fade */
+  window.addEventListener('scroll', () => {
+    const pct = Math.min(window.scrollY / (window.innerHeight * 0.5), 1);
+    hero.style.opacity = 1 - pct * 0.6;
+  }, { passive: true });
+
+
+  /* How it works flip cards */
+  document.querySelectorAll('.how-card').forEach(function(card) {
+    function flip() { card.classList.toggle('flipped'); }
+    card.addEventListener('click', flip);
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
+    });
+  });
+
+  /* Mobile nav */
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks  = document.getElementById('nav-links');
+  navToggle.addEventListener('click', function() {
+    const expanded = this.getAttribute('aria-expanded') === 'true';
+    navLinks.classList.toggle('is-open');
+    this.setAttribute('aria-expanded', String(!expanded));
+  });
+  navLinks.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+</body>
+</html>

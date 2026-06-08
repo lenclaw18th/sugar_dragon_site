@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Sugar Dragon: Reading</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#3D1A2A">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/brand.css">
+  <link rel="stylesheet" href="/assets/reader.css">
+</head>
+<body>
+
+  <!-- Loading gate -->
+  <div id="gate" class="gate" role="status" aria-live="polite">
+    <div class="gate-spinner" aria-hidden="true"></div>
+    <p>Loading your book&hellip;</p>
+  </div>
+
+  <!-- Error state -->
+  <div id="error-state" class="error-state hidden" role="alert">
+    <h1>Access required</h1>
+    <p id="error-msg">Please use the reading link from your purchase email.</p>
+    <a href="/" class="btn btn-rose" style="margin-top:1.5rem;">Get the digital book</a>
+  </div>
+
+  <!-- Reader -->
+  <div id="reader" class="hidden" role="main" aria-label="Book reader">
+
+    <div id="page-container" role="region" aria-label="Book pages">
+      <!-- Page slides injected by JS -->
+    </div>
+
+    <nav id="nav" aria-label="Page navigation">
+      <button id="btn-prev" aria-label="Previous page" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+
+      <span id="counter" aria-live="polite" aria-atomic="true">1 / 1</span>
+
+      <button id="btn-next" aria-label="Next page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- End-of-book CTA panel -->
+  <div id="end-panel" class="hidden" role="complementary" aria-label="What happens next">
+
+    <div class="end-panel-inner">
+      <p class="end-eyebrow">The Dragon lost his wings</p>
+      <h2>Healthy smiles every day</h2>
+      <p>
+        Maya did it. Two minutes, twice a day. No more Sugar Dragon.
+        Now keep the brushing going with the free companion app, launching soon.
+      </p>
+
+      <!-- Waitlist form -->
+      <form class="waitlist-form" id="waitlist-form" novalidate>
+        <input
+          type="email"
+          id="waitlist-email"
+          name="email"
+          placeholder="Your email address"
+          autocomplete="email"
+          aria-label="Email address for app waitlist"
+          required
+        >
+        <button type="submit" class="btn btn-yellow">Join the waitlist</button>
+      </form>
+      <p id="waitlist-success" class="waitlist-success hidden" role="status">
+        You are on the list. We will email you when the app launches.
+      </p>
+      <p id="waitlist-error" class="hidden" style="color:var(--rose-mid);font-size:0.85rem;margin-top:0.5rem;" role="alert">
+        Something went wrong. Please try again.
+      </p>
+      <p style="font-size:0.78rem;color:var(--soft);margin-top:0.5rem;">
+        Free app. No ads. No child data. Unsubscribe any time.
+      </p>
+
+      <div class="end-divider"></div>
+
+      <div class="end-secondary">
+        <a
+          href="https://www.amazon.co.uk/dp/PLACEHOLDER"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline"
+          id="amazon-link"
+        >
+          Buy the paperback on Amazon, £9.99
+        </a>
+        <a
+          href="#"
+          id="pdf-download"
+          class="btn btn-outline"
+        >
+          Download your PDF
+        </a>
+      </div>
+
+      <div class="read-again">
+        <button id="btn-read-again">Read the book again</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PWA install banner (injected by JS when appropriate) -->
+
+  <script>
+  (function () {
+    'use strict';
+
+    const STORAGE_KEY   = 'sd_access_book1';
+    const VALIDATED_KEY = 'sd_validated_book1';
+    const INSTALL_KEY   = 'sd_install_dismissed';
+    const MANIFEST_URL  = '/book1/manifest.json';
+
+    let bookManifest  = null;
+    let currentPage   = 0;
+    let totalPages    = 0;
+    let storedToken   = null;
+    let deferredInstallPrompt = null;
+    let spreadMode = false;
+    const spreadMQL = window.matchMedia('(min-width: 1024px)');
+
+    // ---- Elements ----
+    const gateEl       = document.getElementById('gate');
+    const errorEl      = document.getElementById('error-state');
+    const errorMsgEl   = document.getElementById('error-msg');
+    const readerEl     = document.getElementById('reader');
+    const pageContainer= document.getElementById('page-container');
+    const counterEl    = document.getElementById('counter');
+    const btnPrev      = document.getElementById('btn-prev');
+    const btnNext      = document.getElementById('btn-next');
+    const endPanel     = document.getElementById('end-panel');
+    const waitlistForm = document.getElementById('waitlist-form');
+    const waitlistOk   = document.getElementById('waitlist-success');
+    const waitlistErr  = document.getElementById('waitlist-error');
+    const btnReadAgain = document.getElementById('btn-read-again');
+    const pdfDownload  = document.getElementById('pdf-download');
+
+    // ---- Utility ----
+    function show(el)   { el.classList.remove('hidden'); }
+    function hide(el)   { el.classList.add('hidden'); }
+
+    function showError(msg) {
+      hide(gateEl);
+      if (msg) errorMsgEl.textContent = msg;
+      show(errorEl);
+    }
+
+    // ---- Token handling ----
+    function getTokenFromUrl() {
+      return new URLSearchParams(location.search).get('t');
+    }
+
+    function isBasicJwt(str) {
+      // Three dot-separated base64url segments
+      return /^[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_]+$/.test(str);
+    }
+
+    async function validateTokenOnline(token) {
+      const res = await fetch(`/api/validate-token?t=${encodeURIComponent(token)}`);
+      if (!res.ok) throw new Error('Invalid token');
+      const data = await res.json();
+      if (!data.valid) throw new Error('Invalid token');
+      return data;
+    }
+
+    // ---- Book loading ----
+    async function loadManifest() {
+      const res = await fetch(MANIFEST_URL);
+      if (!res.ok) throw new Error('Could not load book');
+      return res.json();
+    }
+
+    function buildPages(manifest) {
+      pageContainer.innerHTML = '';
+      manifest.pages.forEach((page, i) => {
+        const slide = document.createElement('div');
+        slide.className = 'page-slide' + (i === 0 ? ' active' : '');
+        slide.dataset.index = i;
+
+        const img = document.createElement('img');
+        img.src     = page.src;
+        img.loading = i === 0 ? 'eager' : 'lazy';
+        img.alt     = page.alt || '';
+        img.draggable = false;
+
+        slide.appendChild(img);
+
+        if (page.verse) {
+          const text = document.createElement('p');
+          text.className = 'visually-hidden';
+          text.textContent = page.verse;
+          slide.appendChild(text);
+        }
+
+        pageContainer.appendChild(slide);
+      });
+    }
+
+    function getSlide(index) {
+      return pageContainer.querySelector(`.page-slide[data-index="${index}"]`);
+    }
+
+    function goToPage(index) {
+      if (index < 0 || index >= totalPages) return;
+      pageContainer.querySelectorAll('.page-slide.active')
+        .forEach(el => el.classList.remove('active'));
+
+      if (spreadMode && index > 0) {
+        const left  = index % 2 === 1 ? index : index - 1;
+        const right = left + 1;
+        const leftSlide  = getSlide(left);
+        const rightSlide = right < totalPages ? getSlide(right) : null;
+        if (leftSlide)  leftSlide.classList.add('active');
+        if (rightSlide) rightSlide.classList.add('active');
+        currentPage = left;
+        const rightLabel = rightSlide ? `-${right + 1}` : '';
+        counterEl.textContent = `${left + 1}${rightLabel} / ${totalPages}`;
+      } else {
+        const slide = getSlide(index);
+        if (slide) slide.classList.add('active');
+        currentPage = index;
+        counterEl.textContent = `${currentPage + 1} / ${totalPages}`;
+      }
+
+      btnPrev.disabled = currentPage === 0;
+      btnNext.disabled = false;
+    }
+
+    function handleNext() {
+      if (spreadMode) {
+        const next = currentPage === 0 ? 1 : currentPage + 2;
+        if (next >= totalPages) { hide(readerEl); show(endPanel); return; }
+        goToPage(next);
+      } else {
+        if (currentPage >= totalPages - 1) { hide(readerEl); show(endPanel); return; }
+        goToPage(currentPage + 1);
+      }
+    }
+
+    function handlePrev() {
+      if (currentPage === 0) return;
+      if (!spreadMode) { goToPage(currentPage - 1); return; }
+      if (currentPage === 1) { goToPage(0); return; }
+      goToPage(currentPage - 2);
+    }
+
+    function applySpreadMode(matches) {
+      spreadMode = matches;
+      readerEl.classList.toggle('spread', spreadMode);
+      if (totalPages > 0) {
+        const target = spreadMode && currentPage > 0
+          ? (currentPage % 2 === 1 ? currentPage : currentPage - 1)
+          : currentPage;
+        goToPage(target);
+      }
+    }
+
+    spreadMQL.addEventListener('change', e => applySpreadMode(e.matches));
+
+    // ---- Touch / swipe ----
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    pageContainer.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    pageContainer.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].screenX - touchStartX;
+      const dy = e.changedTouches[0].screenY - touchStartY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+        if (dx < 0) handleNext();
+        else handlePrev();
+      }
+    }, { passive: true });
+
+    // ---- Keyboard ----
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') handleNext();
+      if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   handlePrev();
+    });
+
+    btnNext.addEventListener('click', handleNext);
+    btnPrev.addEventListener('click', handlePrev);
+
+    btnReadAgain.addEventListener('click', () => {
+      hide(endPanel);
+      show(readerEl);
+      goToPage(0);
+    });
+
+    // ---- PDF download ----
+    function setPdfLink(token) {
+      if (pdfDownload) {
+        pdfDownload.href = `/api/download-pdf?t=${encodeURIComponent(token)}`;
+      }
+    }
+
+    // ---- Waitlist form ----
+    waitlistForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('waitlist-email').value.trim();
+      if (!email) return;
+
+      const submitBtn = waitlistForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Joining...';
+      hide(waitlistErr);
+
+      try {
+        const res = await fetch('/api/subscribe-waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        if (!res.ok) throw new Error('Server error');
+        hide(waitlistForm);
+        show(waitlistOk);
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Join the waitlist';
+        show(waitlistErr);
+      }
+    });
+
+    // ---- Background prefetch for offline ----
+    function prefetchPages(manifest) {
+      if (!('caches' in window)) return;
+      manifest.pages.forEach((page, i) => {
+        if (i === 0) return; // cover already loaded
+        setTimeout(() => {
+          const img = new Image();
+          img.src = page.src;
+        }, i * 80);
+      });
+    }
+
+    // ---- PWA install banner ----
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      const dismissed = localStorage.getItem(INSTALL_KEY);
+      const installedMode = window.matchMedia('(display-mode: standalone)').matches;
+      if (!dismissed && !installedMode) {
+        setTimeout(showInstallBanner, 2000);
+      }
+    });
+
+    function showInstallBanner() {
+      if (document.getElementById('install-banner')) return;
+      const banner = document.createElement('div');
+      banner.id = 'install-banner';
+      banner.setAttribute('role', 'complementary');
+      banner.innerHTML = `
+        <p>
+          <strong>Add to home screen</strong>
+          Open the book in one tap, offline, any time.
+        </p>
+        <button class="btn btn-yellow" id="install-accept" style="padding:0.6rem 1.25rem;font-size:0.875rem;">Add</button>
+        <button id="install-dismiss" aria-label="Dismiss">&times;</button>
+      `;
+      document.body.appendChild(banner);
+
+      document.getElementById('install-accept').addEventListener('click', async () => {
+        if (deferredInstallPrompt) {
+          deferredInstallPrompt.prompt();
+          await deferredInstallPrompt.userChoice;
+          deferredInstallPrompt = null;
+        }
+        banner.remove();
+      });
+
+      document.getElementById('install-dismiss').addEventListener('click', () => {
+        localStorage.setItem(INSTALL_KEY, '1');
+        banner.remove();
+      });
+    }
+
+    // iOS install hint
+    function showIosHint() {
+      const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+      const inStandalone = window.navigator.standalone;
+      const dismissed = localStorage.getItem(INSTALL_KEY);
+      if (isIos && !inStandalone && !dismissed) {
+        setTimeout(() => {
+          const banner = document.createElement('div');
+          banner.id = 'install-banner';
+          banner.innerHTML = `
+            <p>
+              <strong>Add to home screen</strong>
+              Tap the Share button, then "Add to Home Screen".
+            </p>
+            <button id="install-dismiss" aria-label="Dismiss">&times;</button>
+          `;
+          document.body.appendChild(banner);
+          document.getElementById('install-dismiss').addEventListener('click', () => {
+            localStorage.setItem(INSTALL_KEY, '1');
+            banner.remove();
+          });
+        }, 3000);
+      }
+    }
+
+    // ---- Entry point ----
+    async function init() {
+      const urlToken       = getTokenFromUrl();
+      const storedRawToken = localStorage.getItem(STORAGE_KEY);
+      const wasValidated   = localStorage.getItem(VALIDATED_KEY) === '1';
+      const isPreview      = new URLSearchParams(location.search).get('preview') === '1';
+
+      let token = null;
+
+      if (isPreview) {
+        // Temporary preview bypass — remove before going live
+        token = '__preview__';
+      } else if (urlToken && isBasicJwt(urlToken)) {
+        // Fresh link from email: validate online
+        try {
+          await validateTokenOnline(urlToken);
+          localStorage.setItem(STORAGE_KEY, urlToken);
+          localStorage.setItem(VALIDATED_KEY, '1');
+          token = urlToken;
+          // Clean the token from the URL without reloading
+          history.replaceState(null, '', location.pathname);
+        } catch (err) {
+          showError('Your reading link is invalid or has expired. Please check your purchase email.');
+          return;
+        }
+      } else if (storedRawToken && wasValidated) {
+        // Return visit: trust the stored token (offline-safe)
+        token = storedRawToken;
+      } else if (urlToken) {
+        // Malformed token in URL
+        showError('Your reading link looks incorrect. Please use the link from your purchase email.');
+        return;
+      } else {
+        // No token at all
+        showError('Please use the reading link from your purchase email to open the book.');
+        return;
+      }
+
+      storedToken = token;
+      setPdfLink(token);
+
+      // Load book manifest
+      try {
+        bookManifest = await loadManifest();
+      } catch (err) {
+        showError('Could not load the book. Please check your connection and try again.');
+        return;
+      }
+
+      totalPages = bookManifest.pages.length;
+      buildPages(bookManifest);
+      applySpreadMode(spreadMQL.matches);
+
+      hide(gateEl);
+      show(readerEl);
+
+      prefetchPages(bookManifest);
+      showIosHint();
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      }
+    }
+
+    init();
+
+  })();
+  </script>
+</body>
+</html>

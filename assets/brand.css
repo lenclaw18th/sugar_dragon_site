@@ -1,0 +1,142 @@
+/* Sugar Dragon brand tokens, derived from BRAND.md */
+
+:root {
+  /* Colour palette */
+  --rose:         #C23060;
+  --rose-mid:     #E8708A;
+  --rose-light:   #F4C5CF;
+  --rose-dk:      #8A1A3A;
+  --cream:        #FFF8E7;
+  --cream-mid:    #F0E8D4;
+  --yellow:       #FFE87C;
+  --deep:         #3D1A2A;
+  --mid:          #5C3040;
+  --soft:         #7A4050;
+  --grn:          #2A7A4A;
+  --glass:        rgba(255,255,255,0.18);
+  --glass-edge:   rgba(255,255,255,0.42);
+
+  /* Gradients */
+  --grad-rose:    linear-gradient(135deg, #B02050, #E0607A);
+  --grad-hero:    linear-gradient(135deg, #B02050 0%, #E0607A 45%, #FF9060 100%);
+  --grad-email:   linear-gradient(135deg, #B02050 0%, #E0607A 52%, #FF9060 100%);
+
+  /* Shadows */
+  --shadow-sm:    0 2px 8px rgba(61,26,42,0.12);
+  --shadow-md:    0 6px 24px rgba(61,26,42,0.16);
+  --shadow-rose:  0 4px 16px rgba(176,32,80,0.28);
+  --shadow-yellow:0 4px 16px rgba(255,232,124,0.5);
+
+  /* Typography */
+  --font-heading: Georgia, 'Times New Roman', serif;
+  --font-body:    'Nunito', -apple-system, 'Segoe UI', sans-serif;
+
+  /* Layout */
+  --container:    1140px;
+  --radius-pill:  50px;
+  --radius-card:  1.5rem;
+  --radius-img:   2rem;
+}
+
+/* ---- Reset & base ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--mid);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--deep);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+a { color: var(--rose); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn-rose {
+  background: var(--grad-rose);
+  color: #fff;
+  box-shadow: var(--shadow-rose);
+}
+.btn-rose:hover { box-shadow: 0 6px 24px rgba(176,32,80,0.38); text-decoration: none; opacity: 0.93; }
+
+.btn-yellow {
+  background: var(--yellow);
+  color: var(--deep);
+  box-shadow: var(--shadow-yellow);
+}
+.btn-yellow:hover { box-shadow: 0 6px 24px rgba(255,232,124,0.65); text-decoration: none; opacity: 0.93; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--rose);
+  border: 2px solid var(--rose-light);
+}
+.btn-outline:hover { background: var(--rose-light); text-decoration: none; }
+
+.btn-ghost {
+  background: var(--glass);
+  color: #fff;
+  border: 1px solid var(--glass-edge);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ---- Utility ---- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

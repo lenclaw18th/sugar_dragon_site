@@ -1,0 +1,131 @@
+{
+  "id": "book1",
+  "title": "Sugar Dragon Goes to the Dentist",
+  "pdf": "/api/download-pdf",
+  "pages": [
+    {
+      "src": "/book1/pages/cover.webp",
+      "alt": "Sugar Dragon Goes to the Dentist. Front cover. A small, mischievous cartoon dragon with red scales, a yellow chest, and tatty grey wings grins at the reader."
+    },
+    {
+      "src": "/book1/pages/page-01.webp",
+      "alt": "Title page. Sugar Dragon Goes to the Dentist. Book 1 in the Sugar Dragon series. Less sugar. Less fillings. Healthy smiles."
+    },
+    {
+      "src": "/book1/pages/page-02.webp",
+      "alt": "Copyright and dedication page."
+    },
+    {
+      "src": "/book1/pages/page-03.webp",
+      "verse": "Meet the SUGAR DRAGON, Red from horns to toes, With a chest of bright yellow And a soot-smeared nose."
+    },
+    {
+      "src": "/book1/pages/page-04.webp",
+      "alt": "The Sugar Dragon grins straight at the reader with a cheeky toothy smile. A curl of grey smoke rises from one nostril. Soft pastel sky behind him."
+    },
+    {
+      "src": "/book1/pages/page-05.webp",
+      "verse": "His teeth are all yellow, His wings are all grey. He puffs out black smoke When he's had a bad day. He has bags under his eyes Like a cat that won't sleep, 'Cause he's up half the night With the sweets that he keeps."
+    },
+    {
+      "src": "/book1/pages/page-06.webp",
+      "alt": "The Sugar Dragon sits on a heap of empty sweet wrappers in a moonlit attic den, looking tired and pleased with himself."
+    },
+    {
+      "src": "/book1/pages/page-07.webp",
+      "verse": "He LOVES fizzy cola, He LOVES chocolate cake, Lollies and toffee And fudge that you bake."
+    },
+    {
+      "src": "/book1/pages/page-08.webp",
+      "alt": "The Sugar Dragon dives headfirst into a giant pile of sweets, chocolate cake, lollipops, fudge cubes, and a tipping-over glass of cola with bubbles flying."
+    },
+    {
+      "src": "/book1/pages/page-09.webp",
+      "verse": "But he hates lovely water, He hates crunchy peas, And MINTY TOOTHPASTE Makes him wobble his knees."
+    },
+    {
+      "src": "/book1/pages/page-10.webp",
+      "alt": "The Sugar Dragon cowers with knees knocking, holding his nose. In front of him: a tall glass of water, a bowl of peas and broccoli, and a giant tube of toothpaste squirting out a fresh white minty blob."
+    },
+    {
+      "src": "/book1/pages/page-11.webp",
+      "verse": "There's one thing he loves Even more than a sweet: A rotten brown tooth He can sniff in the street."
+    },
+    {
+      "src": "/book1/pages/page-12.webp",
+      "verse": "He hollows it out, Then he curls up inside, And he flaps away home With the tooth as his ride."
+    },
+    {
+      "src": "/book1/pages/page-13.webp",
+      "verse": "But ZIP! Through the moonlight, Who's that in the sky? The TOOTH FAIRY catches him, \"Oh no you don't, stay away! Goodbye!\""
+    },
+    {
+      "src": "/book1/pages/page-14.webp",
+      "alt": "A small kind-faced Tooth Fairy with silver wings and a glittery lilac dress shines a bright golden torch beam onto the Sugar Dragon mid-flight. He shields his eyes guiltily. A rotten tooth tumbles from his claws."
+    },
+    {
+      "src": "/book1/pages/page-15.webp",
+      "verse": "Now meet little Maya, She's nearly aged three. She nibbles sweet sweeties while watching TV."
+    },
+    {
+      "src": "/book1/pages/page-16.webp",
+      "verse": "She slurps fizzy cola, She licks lollies flat, And she hides from her toothbrush Like it was a rat."
+    },
+    {
+      "src": "/book1/pages/page-17.webp",
+      "verse": "One morning, poor Maya Goes \"OUCH!\" with a yelp, Her front tooth is wobbly And asking for help."
+    },
+    {
+      "src": "/book1/pages/page-18.webp",
+      "verse": "The Sugar Dragon sniffs it From miles, miles away, \"A ROTTEN ONE coming! HOORAY for today!\""
+    },
+    {
+      "src": "/book1/pages/page-19.webp",
+      "verse": "But Mum says, \"Oh Maya, Let's hop in the car. The dentist is friendly, She isn't too far.\""
+    },
+    {
+      "src": "/book1/pages/page-20.webp",
+      "alt": "Maya sits in her child car seat holding a cuddly toy, a small brave smile on her face. Through the window, the Sugar Dragon flaps frantically to keep up, recoiling from a road sign showing a giant tube of mint toothpaste."
+    },
+    {
+      "src": "/book1/pages/page-21.webp",
+      "verse": "\"Hello there!\" the dentist says, \"hop in my chair. I'll count all your teeth And I'll tickle your hair.\""
+    },
+    {
+      "src": "/book1/pages/page-22.webp",
+      "verse": "\"Open up wider. Say AAH, if you please.\" And Maya goes AAAH Like the breeze through the trees."
+    },
+    {
+      "src": "/book1/pages/page-23.webp",
+      "verse": "\"Your wobbly one's normal, It's just on its way. A brand new big tooth Will pop up any day.\""
+    },
+    {
+      "src": "/book1/pages/page-24.webp",
+      "verse": "\"But listen now, Maya, Here's my best tip: Keep SUGAR DRAGONS Well away from your lips!\""
+    },
+    {
+      "src": "/book1/pages/page-25.webp",
+      "verse": "\"Brush twice every day, Both morning and night. A pea-blob of toothpaste, Not too big, not too tight.\""
+    },
+    {
+      "src": "/book1/pages/page-26.webp",
+      "verse": "\"Brush top, brush bottom, Brush round and around, For two little minutes Without too much sound.\""
+    },
+    {
+      "src": "/book1/pages/page-27.webp",
+      "verse": "So Maya brushed up When the morning sun rose, And again when the moon Tucked the stars in to doze."
+    },
+    {
+      "src": "/book1/pages/page-28.webp",
+      "verse": "The Sugar Dragon sniffed mint And he reeled and he gagged, \"That HORRIBLE smell! My poor wings have gone ragged!\""
+    },
+    {
+      "src": "/book1/pages/page-29.webp",
+      "verse": "Then PLOP went one wing, And PLOP went the other. \"I'll have to walk home now! Oh BOTHER and BOTHER!\""
+    },
+    {
+      "src": "/book1/pages/page-30.webp",
+      "verse": "The Tooth Fairy giggled, \"Goodnight, sleep tight, Maya.\" And up rose the moon On a smile getting brighter. Less sugar. Less fillings. Healthy smiles."
+    }
+  ]
+}

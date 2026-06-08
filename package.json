@@ -1,0 +1,12 @@
+{
+  "name": "sugar-dragon-reader",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "stripe": "^16.0.0"
+  }
+}

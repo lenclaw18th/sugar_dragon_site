@@ -1,0 +1,355 @@
+/* Reader-specific layout, builds on brand.css */
+
+/* ---- Reader shell ---- */
+body {
+  background: var(--deep);
+  color: var(--cream);
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* ---- Gate / loading / error states ---- */
+.gate,
+.error-state {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--deep);
+  padding: 2rem;
+  text-align: center;
+  z-index: 100;
+}
+
+.gate-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--rose-light);
+  border-top-color: var(--rose);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.gate p,
+.error-state p {
+  color: var(--cream-mid);
+  font-size: 0.95rem;
+}
+
+.error-state h1 {
+  font-family: var(--font-heading);
+  color: var(--cream);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  margin-bottom: 0.75rem;
+}
+
+.error-state .btn {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+.hidden { display: none !important; }
+
+/* ---- Page reader ---- */
+#reader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--deep);
+}
+
+/* Page display area */
+#page-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.page-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.page-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ---- Navigation bar ---- */
+#nav {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: rgba(61,26,42,0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  gap: 0.5rem;
+}
+
+#nav button {
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass);
+  border: 1px solid var(--glass-edge);
+  border-radius: 50%;
+  color: var(--cream);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+  padding: 0;
+}
+
+#nav button:hover { background: rgba(255,255,255,0.28); }
+#nav button:disabled { opacity: 0.3; cursor: default; }
+#nav button:active:not(:disabled) { transform: scale(0.94); }
+
+#counter {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--rose-light);
+  letter-spacing: 0.06em;
+  text-align: center;
+  flex: 1;
+}
+
+/* ---- End-of-book CTA panel ---- */
+#end-panel {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  background: var(--deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 5vw, 3rem);
+  text-align: center;
+}
+
+.end-panel-inner {
+  max-width: 480px;
+  width: 100%;
+  margin: auto;
+}
+
+.end-eyebrow {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--rose-mid);
+  margin-bottom: 0.75rem;
+}
+
+.end-panel-inner h2 {
+  font-family: var(--font-heading);
+  color: var(--cream);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin-bottom: 0.75rem;
+}
+
+.end-panel-inner p {
+  color: var(--cream-mid);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Waitlist form */
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.waitlist-form input[type="email"] {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--rose-dk);
+  background: rgba(255,255,255,0.07);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.waitlist-form input[type="email"]:focus { border-color: var(--rose-mid); }
+.waitlist-form input[type="email"]::placeholder { color: var(--soft); }
+
+.waitlist-form .btn { width: 100%; }
+
+.waitlist-success {
+  color: var(--grn);
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  background: rgba(42,122,74,0.15);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(42,122,74,0.3);
+}
+
+/* Divider */
+.end-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--rose-dk), transparent);
+  margin: 1.75rem 0;
+}
+
+/* Secondary actions */
+.end-secondary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.end-secondary .btn {
+  width: 100%;
+}
+
+/* "Read again" link */
+.read-again {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--soft);
+}
+
+.read-again button {
+  background: none;
+  border: none;
+  color: var(--rose-mid);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  text-decoration: underline;
+}
+
+/* ---- PWA install banner ---- */
+#install-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--deep);
+  border-top: 1px solid var(--rose-dk);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 200;
+  animation: slide-up 0.3s ease;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+#install-banner p {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--cream-mid);
+  margin: 0;
+}
+
+#install-banner p strong {
+  display: block;
+  color: var(--cream);
+  font-weight: 700;
+}
+
+#install-banner .btn {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+#install-dismiss {
+  background: none;
+  border: none;
+  color: var(--soft);
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0.25rem;
+  line-height: 1;
+  min-width: 32px;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Responsive tweaks ---- */
+@media (min-width: 640px) {
+  .waitlist-form {
+    flex-direction: row;
+  }
+  .waitlist-form .btn {
+    width: auto;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-height: 500px) {
+  #nav { padding: 0.25rem 1rem; }
+  #nav button { min-width: 40px; min-height: 40px; }
+}
+
+/* ---- Two-page spread layout (1024px+) ---- */
+@media (min-width: 1024px) {
+  #reader.spread #page-container {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  #reader.spread .page-slide {
+    display: none;
+    position: relative;
+    inset: auto;
+  }
+
+  #reader.spread .page-slide.active {
+    display: flex;
+    flex: 1;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #reader.spread .page-slide img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sugar Dragon for Dental Practices | Bulk Orders and Patient Resources</title>
+  <meta name="description" content="Give your youngest patients a reason to brush between visits. NHS-aligned children's book, free co-branded brushing chart, and bulk orders at 35% off for UK dental practices." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red:    oklch(52% 0.22 25deg);
+      --red-dk: oklch(42% 0.20 25deg);
+      --red-lt: oklch(96% 0.03 25deg);
+      --yel:    oklch(82% 0.18 85deg);
+      --grn:    oklch(50% 0.16 148deg);
+      --grn-dk: oklch(40% 0.14 148deg);
+      --grn-lt: oklch(96% 0.04 148deg);
+      --ink:    oklch(18% 0.01 25deg);
+      --stone:  oklch(96% 0.01 25deg);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--ink);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .display {
+      font-family: 'Fredoka', sans-serif;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    .t-hero  { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 700; }
+    .t-h2    { font-size: clamp(1.8rem, 4vw, 3rem);   font-weight: 600; }
+    .t-h3    { font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 600; }
+    .t-body  { font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.7; }
+    .t-small { font-size: 0.875rem; line-height: 1.6; }
+    .t-label { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
+
+    .contain { max-width: 72rem; margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 3rem); }
+    .section  { padding-block: clamp(4rem, 8vw, 8rem); }
+
+    /* Nav */
+    nav { position: sticky; top: 0; z-index: 50; background: white; border-bottom: 1px solid oklch(92% 0.01 25deg); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 4rem; }
+    .nav-logo  { font-family: 'Fredoka', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--red); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.9rem; font-weight: 700; color: oklch(40% 0.01 25deg); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--red); }
+    .nav-links a.active { color: var(--grn); border-bottom: 2px solid var(--grn); padding-bottom: 0.1rem; }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      margin-left: 0.25rem;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+    }
+    @media (max-width: 640px) {
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        right: 0;
+        background: white;
+        border-bottom: 1px solid oklch(92% 0.01 25deg);
+        flex-direction: column;
+        padding: 0.5rem 0;
+        gap: 0;
+        box-shadow: 0 8px 24px oklch(18% 0.01 25deg / 0.1);
+        z-index: 49;
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-links li a { padding: 0.75rem 1.5rem; display: block; font-size: 1rem; }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: 'Fredoka', sans-serif; font-size: 1.1rem; font-weight: 600;
+      padding: 0.85rem 2rem; border-radius: 100px;
+      text-decoration: none; transition: transform 0.15s, box-shadow 0.15s;
+      white-space: nowrap; border: none; cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--ink); color: white; box-shadow: 0 4px 16px oklch(18% 0.01 25deg / 0.3); }
+    .btn-primary:hover { box-shadow: 0 8px 24px oklch(18% 0.01 25deg / 0.4); }
+    .btn-green  { background: var(--grn); color: white; box-shadow: 0 4px 16px oklch(50% 0.16 148deg / 0.35); }
+    .btn-green:hover  { background: var(--grn-dk); box-shadow: 0 8px 24px oklch(50% 0.16 148deg / 0.45); }
+    .btn-outline-green { background: transparent; color: var(--grn); border: 2.5px solid var(--grn); border-radius: 100px; padding: 0.85rem 2rem; font-family: 'Fredoka', sans-serif; font-size: 1.1rem; font-weight: 600; display: inline-flex; align-items: center; text-decoration: none; transition: background 0.15s, transform 0.15s; }
+    .btn-outline-green:hover { background: var(--grn-lt); transform: translateY(-2px); }
+
+    /* Hero */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 6vw, 6rem);
+      align-items: center;
+      padding-block: clamp(4rem, 8vw, 8rem);
+    }
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-img-col { order: -1; }
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--grn-lt);
+      color: var(--grn);
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+    .hero-img-col {
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 24px 64px oklch(52% 0.22 25deg / 0.15);
+      aspect-ratio: 1;
+      background: var(--red-lt);
+    }
+    .hero-img-col img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Why section */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 6vw, 6rem);
+      align-items: start;
+    }
+    @media (max-width: 640px) { .why-grid { grid-template-columns: 1fr; } }
+    .creds-list { list-style: none; }
+    .creds-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid oklch(90% 0.02 148deg);
+    }
+    .creds-list li:first-child { padding-top: 0; }
+    .creds-list li:last-child  { border-bottom: none; }
+    .creds-check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px; height: 22px;
+      background: var(--grn);
+      color: white;
+      border-radius: 50%;
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      font-weight: 900;
+      margin-top: 0.15rem;
+    }
+    .creds-list h4 { font-family: 'Fredoka', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; line-height: 1.2; }
+    .creds-list p  { font-size: 0.875rem; color: oklch(45% 0.01 25deg); line-height: 1.55; }
+
+    /* Offer */
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 640px) { .offer-grid { grid-template-columns: 1fr; } }
+    .offer-featured {
+      background: var(--grn-lt);
+      border: 2px solid oklch(84% 0.08 148deg);
+      border-radius: 2rem;
+      padding: clamp(1.75rem, 4vw, 2.5rem);
+      display: flex;
+      flex-direction: column;
+    }
+    .offer-featured h3 { color: var(--ink); margin-bottom: 0.5rem; }
+    .offer-price {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      color: var(--grn);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .offer-price-note { font-size: 0.875rem; color: oklch(50% 0.06 148deg); margin-bottom: 1.25rem; }
+    .offer-featured .t-small { color: oklch(38% 0.01 25deg); margin-bottom: 1.5rem; flex: 1; }
+    .offer-secondary { display: flex; flex-direction: column; gap: 1.5rem; }
+    .offer-card {
+      background: white;
+      border: 1.5px solid oklch(90% 0.01 25deg);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      flex: 1;
+    }
+    .offer-card-icon { font-size: 1.75rem; margin-bottom: 0.75rem; display: block; }
+    .offer-card h3   { font-size: 1.05rem; margin-bottom: 0.3rem; }
+    .offer-card .offer-price      { font-size: 1.8rem; margin-bottom: 0.2rem; }
+    .offer-card .offer-price-note { margin-bottom: 0.75rem; }
+    .offer-card p    { font-size: 0.875rem; color: oklch(45% 0.01 25deg); line-height: 1.55; }
+
+    /* Pilot strip */
+    .pilot-card {
+      background: oklch(36% 0.14 148deg);
+      border-radius: 2rem;
+      padding: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    /* Form */
+    .enquiry-form { max-width: 52rem; margin-inline: auto; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+    @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+    .form-field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.25rem; }
+    .form-field:last-child { margin-bottom: 0; }
+    .form-field label { font-size: 0.875rem; font-weight: 700; color: var(--ink); }
+    .form-field input,
+    .form-field textarea {
+      border: 2px solid oklch(88% 0.01 25deg);
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.15s;
+      width: 100%;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus { border-color: var(--grn); }
+    .form-checks { margin-bottom: 1.25rem; }
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 0;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: oklch(38% 0.01 25deg);
+      border-bottom: 1px solid oklch(94% 0.01 25deg);
+    }
+    .form-check:last-child { border-bottom: none; }
+    .form-check input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--grn); flex-shrink: 0; cursor: pointer; }
+
+    /* Footer */
+    footer { background: var(--ink); color: oklch(70% 0.01 25deg); padding: clamp(3rem, 6vw, 5rem) 0 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    .footer-brand-name { font-family: 'Fredoka', sans-serif; font-size: 1.5rem; color: white; margin-bottom: 0.75rem; }
+    .footer-tagline { font-size: 0.9rem; line-height: 1.6; color: oklch(60% 0.01 25deg); }
+    .footer-col h4 { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: oklch(62% 0.01 25deg); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.6rem; }
+    .footer-col a { color: oklch(62% 0.01 25deg); text-decoration: none; font-size: 0.9rem; transition: color 0.15s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid oklch(28% 0.01 25deg); padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+    .footer-bottom p { font-size: 0.8rem; color: oklch(48% 0.01 25deg); }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="contain nav-inner">
+      <a href="/" class="nav-logo">
+        <span>Sugar Dragon</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/books">Books</a></li>
+        <li><a href="/app">App</a></li>
+        <li><a href="/dentists" class="active">For Dentists</a></li>
+        <li><a href="/schools">For Schools</a></li>
+        <li><a href="/free-stuff">Free Resources</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <button class="nav-hamburger" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="#enquire" class="btn btn-green" style="font-size:0.95rem;padding:0.65rem 1.5rem;">
+          Request a sample
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section>
+    <div class="contain">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-badge">For dental practices</span>
+          <h1 class="t-hero" style="color:var(--ink);margin-bottom:1.25rem;">Give your youngest patients a reason to brush between visits.</h1>
+          <p class="t-body" style="color:oklch(42% 0.01 25deg);max-width:44ch;">Sugar Dragon Goes to the Dentist is the NHS-aligned picture book for under-5s that dental practices are buying for waiting rooms and patient gifting. Here is everything you need to know.</p>
+          <div class="hero-ctas">
+            <a href="#enquire" class="btn btn-green">Request a free sample</a>
+            <a href="#bulk-order" class="btn-outline-green">See the bulk offer</a>
+          </div>
+        </div>
+        <div class="hero-img-col">
+          <img
+            src="../Marketing/assets/character/sugar-dragon-reference.jpeg"
+            alt="The Sugar Dragon: a mischievous red cartoon dragon with yellow teeth and dirty grey wings"
+            onerror="this.src='../BOOK1/SD 1.png'"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why it works -->
+  <section class="section" style="background:var(--stone);">
+    <div class="contain">
+      <div class="why-grid">
+        <div>
+          <p class="t-label" style="color:var(--grn);margin-bottom:1rem;">Why practices use Sugar Dragon</p>
+          <h2 class="t-h2" style="margin-bottom:1.5rem;">The gap between your advice and their bathroom</h2>
+          <p class="t-body" style="color:oklch(42% 0.01 25deg);margin-bottom:1rem;">You spend around 15 minutes a year with each patient family. Everything between visits depends on what parents do at home. That gap is where decay happens.</p>
+          <p class="t-body" style="color:oklch(42% 0.01 25deg);margin-bottom:1rem;">Sugar Dragon gives families a tool — a book, an app, and a brushing chart — that reinforces the clinical message you already give, in a format their child will actually engage with.</p>
+          <p class="t-body" style="color:oklch(42% 0.01 25deg);"><strong style="color:var(--ink);">23.7% of five-year-olds in England</strong> have tooth decay (OHID, 2022). Every copy you stock is a gap closed.</p>
+        </div>
+        <div>
+          <p class="t-label" style="color:var(--grn);margin-bottom:1rem;">Clinical credentials</p>
+          <ul class="creds-list">
+            <li>
+              <span class="creds-check">✓</span>
+              <div>
+                <h4>NHS Delivering Better Oral Health (2021)</h4>
+                <p>All brushing guidance follows this toolkit — fluoride amounts, twice-daily routine, spit-don't-rinse.</p>
+              </div>
+            </li>
+            <li>
+              <span class="creds-check">✓</span>
+              <div>
+                <h4>Reviewed by Mr S Ditta</h4>
+                <p>Registered UK dental hygienist. Clinical reviewer for the book series, companion app, and all printed materials.</p>
+              </div>
+            </li>
+            <li>
+              <span class="creds-check">✓</span>
+              <div>
+                <h4>BSDHT First Smiles aligned</h4>
+                <p>Messaging aligns with BSDHT First Smiles guidance on supervised brushing and early prevention.</p>
+              </div>
+            </li>
+            <li>
+              <span class="creds-check">✓</span>
+              <div>
+                <h4>GDPR-compliant companion app</h4>
+                <p>No data collected from children. ICO Age Appropriate Design Code compliant. No ads, ever.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The offer -->
+  <section id="bulk-order" class="section">
+    <div class="contain">
+      <div style="margin-bottom:2.5rem;">
+        <p class="t-label" style="color:var(--red);margin-bottom:0.5rem;">The practice offer</p>
+        <h2 class="t-h2" style="max-width:32ch;">Everything your practice needs to give under-5 families a reason to brush</h2>
+      </div>
+      <div class="offer-grid">
+        <div class="offer-featured">
+          <p class="t-label" style="color:var(--grn);margin-bottom:1rem;">Bulk books</p>
+          <h3 class="t-h3">Sugar Dragon Goes to the Dentist</h3>
+          <div style="margin:1.25rem 0;">
+            <p class="offer-price">£5.85</p>
+            <p class="offer-price-note">per copy (RRP £8.99) — minimum 5 copies</p>
+          </div>
+          <p class="t-small">For waiting rooms, patient gifting, and new-patient packs. No minimum beyond 5 copies. Delivered to your practice.</p>
+          <div style="margin-top:auto;padding-top:1.5rem;">
+            <a href="#enquire" class="btn btn-green" style="font-size:1rem;padding:0.75rem 1.75rem;">Order at 35% off</a>
+          </div>
+        </div>
+        <div class="offer-secondary">
+          <div class="offer-card">
+            <span class="offer-card-icon">📋</span>
+            <h3>Free co-branded brushing chart</h3>
+            <p class="offer-price">Free</p>
+            <p class="offer-price-note">with any order or sample request</p>
+            <p>A Sugar Dragon brushing chart PDF printed with your practice name. Hand it to families at check-up appointments.</p>
+          </div>
+          <div class="offer-card">
+            <span class="offer-card-icon">📱</span>
+            <h3>App patient pack (Q4 2026)</h3>
+            <p class="offer-price" style="font-size:1.6rem;">Pilot</p>
+            <p class="offer-price-note">priority access for bulk-order practices</p>
+            <p>QR-unlock codes so your patients can access all app features. Anonymised brushing frequency summary for your records.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilot story -->
+  <section class="section">
+    <div class="contain">
+      <div class="pilot-card">
+        <p class="t-label" style="color:oklch(72% 0.1 148deg);margin-bottom:1rem;">Our pilot partner</p>
+        <h2 class="t-h2" style="color:white;margin-bottom:1.25rem;">Abbas Dental Practice, Tottenham</h2>
+        <p class="t-body" style="color:oklch(82% 0.06 148deg);max-width:52ch;margin-bottom:1rem;">Starting 1 June 2026, our pilot partner <strong style="color:white;">Abbas Dental Practice, Tottenham N17</strong> will work with 50 patient families over 12 weeks to validate the companion app's engagement and retention before public launch. The pilot is overseen by Mr S Ditta.</p>
+        <p class="t-small" style="color:oklch(68% 0.08 148deg);">Interested in becoming a named partner practice? Book 2 includes a quotation slot on the back cover for one named partner. Enquire below.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enquiry form -->
+  <section id="enquire" class="section">
+    <div class="contain">
+      <div class="enquiry-form">
+        <p class="t-label" style="color:var(--grn);text-align:center;margin-bottom:0.75rem;">Get in touch</p>
+        <h2 class="t-h2" style="text-align:center;margin-bottom:0.75rem;">Request a free sample or bulk order</h2>
+        <p class="t-body" style="color:oklch(45% 0.01 25deg);text-align:center;max-width:44ch;margin-inline:auto;margin-bottom:3rem;">Fill in the form and Len will be in touch within 2 working days. Or email direct: <a href="mailto:lajoseph3@googlemail.com" style="color:var(--grn);font-weight:700;">lajoseph3@googlemail.com</a> — subject line <em>Dental practice — Sugar Dragon</em>.</p>
+        <!-- TODO: Replace with connected form backend (Formspree, Netlify Forms, or Astro API route) -->
+        <form style="display:flex;flex-direction:column;">
+          <div class="form-row">
+            <div class="form-field" style="margin-bottom:0;">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="Dr / Ms / Mr..." />
+            </div>
+            <div class="form-field" style="margin-bottom:0;">
+              <label for="practice">Practice name</label>
+              <input type="text" id="practice" name="practice" placeholder="Your practice name" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="your@practice.com" />
+          </div>
+          <div class="form-field">
+            <label for="address">Practice address</label>
+            <input type="text" id="address" name="address" placeholder="Street address, town, postcode" />
+          </div>
+          <div class="form-checks">
+            <p style="font-size:0.875rem;font-weight:700;color:var(--ink);margin-bottom:0.5rem;">What are you interested in?</p>
+            <label class="form-check">
+              <input type="checkbox" name="interest" value="sample" /> Free signed sample copy
+            </label>
+            <label class="form-check">
+              <input type="checkbox" name="interest" value="bulk" /> Bulk order (5+ copies at £5.85 each)
+            </label>
+            <label class="form-check">
+              <input type="checkbox" name="interest" value="chart" /> Free co-branded brushing chart PDF
+            </label>
+            <label class="form-check">
+              <input type="checkbox" name="interest" value="app" /> App patient pack (Q4 2026 pilot priority)
+            </label>
+            <label class="form-check">
+              <input type="checkbox" name="interest" value="book2" /> Partner practice quotation on Book 2 cover
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="message">Anything else?</label>
+            <textarea id="message" name="message" rows="3" placeholder="Optional — questions, patient cohort size, etc."></textarea>
+          </div>
+          <button type="submit" class="btn btn-green" style="width:100%;justify-content:center;font-size:1.1rem;padding:1rem;margin-bottom:0.75rem;">
+            Send enquiry
+          </button>
+          <p style="font-size:0.78rem;color:oklch(62% 0.01 25deg);text-align:center;">We will reply within 2 working days. No spam. No sharing of your details.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="contain">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand-name">Sugar Dragon</p>
+          <p class="footer-tagline">Less sugar. Less fillings. Healthy smiles.</p>
+          <p class="footer-tagline" style="margin-top:0.75rem;">A children's picture book series and companion app for UK families with toddlers aged 6 months to 5 years.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Books</h4>
+          <ul>
+            <li><a href="/books">All books</a></li>
+            <li><a href="https://www.amazon.co.uk" target="_blank" rel="noopener">Buy on Amazon</a></li>
+            <li><a href="/free-stuff">Free brushing chart</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Professionals</h4>
+          <ul>
+            <li><a href="/dentists">For dental practices</a></li>
+            <li><a href="/schools">For nurseries</a></li>
+            <li><a href="/app">The app</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://instagram.com/sugardragonbooks" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://tiktok.com/@sugardragonbooks" target="_blank" rel="noopener">TikTok</a></li>
+            <li><a href="mailto:lajoseph3@googlemail.com">Email Len</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sugar Dragon Books. All rights reserved.</p>
+        <p>Illustrations lovingly created using AI tools. Clinical content reviewed by Mr S Ditta, registered UK dental hygienist.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('nav-toggle').addEventListener('click', function() {
+      var links = document.getElementById('nav-links');
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      links.classList.toggle('is-open');
+      this.setAttribute('aria-expanded', String(!expanded));
+    });
+  </script>
+
+</body>
+</html>
