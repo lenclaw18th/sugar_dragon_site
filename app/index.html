@@ -164,6 +164,13 @@
     .audience-icon { font-size: 2rem; }
     .audience-card h3 { margin-top: 1.2rem; font-size: 1.45rem; }
     .audience-card p { margin-top: .7rem; color: var(--mid); line-height: 1.65; }
+    .step, .screen-card, .audience-card, .privacy-panel {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .step:hover, .screen-card:hover, .audience-card:hover, .privacy-panel:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 42px rgba(61,26,42,.15);
+    }
 
     .privacy { padding-block: clamp(4rem, 8vw, 6rem); }
     .privacy-panel {
@@ -409,7 +416,7 @@
         <li><a href="/#books">Books</a></li>
         <li><a href="/dentists">For Dentists</a></li>
         <li><a href="/schools">For Schools</a></li>
-        <li><a href="mailto:lajoseph3@googlemail.com">Contact</a></li>
+        <li><a href="mailto:hello@sugardragonbooks.com">Contact</a></li>
       </ul>
     </div>
   </footer>

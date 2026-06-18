@@ -161,6 +161,12 @@ body {
   max-width: 480px;
   width: 100%;
   margin: auto;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.end-panel-inner:hover {
+  transform: translateY(-6px);
+  filter: brightness(1.06);
 }
 
 .end-eyebrow {
