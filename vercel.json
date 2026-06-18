@@ -36,6 +36,12 @@
       ]
     },
     {
+      "source": "/app",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
       "source": "/app/flutter_service_worker.js",
       "headers": [
         { "key": "Cache-Control", "value": "no-cache" }
@@ -45,12 +51,6 @@
       "source": "/reader.html",
       "headers": [
         { "key": "Cache-Control", "value": "no-store" },
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
-      ]
-    },
-    {
-      "source": "/app/index.html",
-      "headers": [
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     },
