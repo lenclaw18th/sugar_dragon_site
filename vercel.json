@@ -24,6 +24,18 @@
       ]
     },
     {
+      "source": "/",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/:page(books|free-stuff|about|dentists|schools)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
       "source": "/app/flutter_service_worker.js",
       "headers": [
         { "key": "Cache-Control", "value": "no-cache" }

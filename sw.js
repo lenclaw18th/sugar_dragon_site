@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sugar-dragon-v1';
+const CACHE_NAME = 'sugar-dragon-v2';
 
 const CORE_ASSETS = [
   '/reader.html',
@@ -36,6 +36,12 @@ self.addEventListener('fetch', (event) => {
 
   // Never intercept cross-origin requests
   if (url.origin !== self.location.origin) return;
+
+  // Pages must always come from the network so prices and purchase copy stay current.
+  if (event.request.mode === 'navigate') {
+    event.respondWith(fetch(event.request, { cache: 'no-store' }));
+    return;
+  }
 
   event.respondWith(
     caches.match(event.request).then((cached) => {
